@@ -4,7 +4,7 @@ const Conditions = require('./condition-model.js')
 
 const result = require('../temp/result.js')
 
-router.get('/',restricted, (req,res) => {
+router.get('/', (req,res) => {
     res.status(200).json(result);
 });
 
