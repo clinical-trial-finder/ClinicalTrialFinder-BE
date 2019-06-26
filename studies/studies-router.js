@@ -35,6 +35,29 @@ router.get('/:id', (req,res) => {
     )
 })
 
+router.get('/search/:filter', async (req,res) => {
+
+    console.log(req.params.filter)
+    // const filter = {overall_status:req.params.filter}
+    const results = await Studies.findBy(req.params.filter)
+
+    res.status(200).json(results)
+})
+
+
+// router.get('/search/:filter',(req,res) => {
+//     console.log('filter by ', req.params.filter)
+//     const filter = {overall_status:req.params.filter};
+//     Studies
+//     .findBy(filter)
+//     .then(filter => {
+//         res.status(200).json(filter);
+//     })
+//     .catch(error => {
+//         res.status(500).json(error)
+//     })
+// })
+
 router.post('/', (req,res) => {
     Studies
     .addStudy(req.body)
