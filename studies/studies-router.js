@@ -1,8 +1,9 @@
 const router = require('express').Router();
+const restricted = require('../auth/restricted.js')
 
 const Studies = require('./studies-model.js')
 
-router.get('/', (req,res) => {
+router.get('/',restricted, (req,res) => {
     console.log(req.body)
     Studies.getStudies()
     .then(study => {
@@ -16,7 +17,7 @@ router.get('/', (req,res) => {
     )
 })
 
-router.get('/:id', (req,res) => {
+router.get('/:id', restricted,(req,res) => {
     Studies
     .getStudyById(req.params.id)
     .then(study => {
@@ -35,7 +36,7 @@ router.get('/:id', (req,res) => {
     )
 })
 
-router.get('/search/:filter', async (req,res) => {
+router.get('/search/:filter',restricted, async (req,res) => {
 
     console.log(req.params.filter)
     // const filter = {overall_status:req.params.filter}
@@ -58,7 +59,7 @@ router.get('/search/:filter', async (req,res) => {
 //     })
 // })
 
-router.post('/', (req,res) => {
+router.post('/',restricted, (req,res) => {
     Studies
     .addStudy(req.body)
     .then(ids => {
@@ -71,7 +72,7 @@ router.post('/', (req,res) => {
     )
 })
 
-router.put('/:id', (req,res) => {
+router.put('/:id',restricted,  (req,res) => {
     Studies
     .update(req.params.id,req.body)
     .then(count => {
@@ -92,7 +93,7 @@ router.put('/:id', (req,res) => {
     )
 });
 
-router.delete('/:id', (req,res) => {
+router.delete('/:id',restricted,  (req,res) => {
     
     Studies
     .remove(req.params.id)
