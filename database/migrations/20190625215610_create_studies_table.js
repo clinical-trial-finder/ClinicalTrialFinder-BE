@@ -9,11 +9,11 @@ exports.up = function(knex, Promise) {
         .unique();
 
         tbl
-        .integer('start_date')
+        .string('start_date',128)
         
         
         tbl
-        .integer('completion_date')
+        .string('completion_date',128)
         
 
         tbl
