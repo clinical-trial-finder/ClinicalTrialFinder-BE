@@ -10,7 +10,8 @@ module.exports = {
 
 function getStudies() {
     // console.log(db('studies'))
-    return db('studies');
+    return db('studies')
+    .limit(30);
 }
 
 function getStudyById(id) {
