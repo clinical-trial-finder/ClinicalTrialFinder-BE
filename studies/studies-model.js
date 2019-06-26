@@ -5,7 +5,8 @@ module.exports = {
     getStudyById,
     addStudy,
     update,
-    remove
+    remove,
+    findBy
 };
 
 function getStudies() {
@@ -21,6 +22,12 @@ function getStudyById(id) {
 
     console.log('get by id model ', study)    
     return study  
+}
+
+function findBy(filter) {
+    return db('studies')
+    .where('condition_name', 'like', `%${filter}%`)
+    // .orWhere('sponsor', 'like', `%${filter}%`)
 }
 
 function addStudy(study) {
