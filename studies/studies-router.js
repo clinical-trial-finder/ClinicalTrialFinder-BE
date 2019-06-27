@@ -3,7 +3,7 @@ const restricted = require('../auth/restricted.js')
 
 const Studies = require('./studies-model.js')
 
-router.get('/',restricted, (req,res) => {
+router.get('/', (req,res) => {
     console.log(req.body)
     Studies.getStudies()
     .then(study => {
@@ -36,28 +36,35 @@ router.get('/:id', restricted,(req,res) => {
     )
 })
 
-router.get('/search/:filter',restricted, async (req,res) => {
+// router.get('/search/:filter',restricted, async (req,res) => {
 
-    console.log(req.params.filter)
-    // const filter = {overall_status:req.params.filter}
-    const results = await Studies.findBy(req.params.filter)
+//     console.log(req.params.filter)
+//     // const filter = {overall_status:req.params.filter}
+//     const results = await Studies.findBy(req.params.filter)
 
-    res.status(200).json(results)
-})
-
-
-// router.get('/search/:filter',(req,res) => {
-//     console.log('filter by ', req.params.filter)
-//     const filter = {overall_status:req.params.filter};
-//     Studies
-//     .findBy(filter)
-//     .then(filter => {
-//         res.status(200).json(filter);
-//     })
-//     .catch(error => {
-//         res.status(500).json(error)
-//     })
+//     res.status(200).json(results)
 // })
+
+
+router.get('/search/:filter',(req,res) => {
+    console.log('filter by ', req.params.filter)
+    // const filter = {overall_status:req.params.filter};
+    Studies
+    .findBy(req.params.filter)
+    .then(filter => {
+        
+        if(filter)
+        {
+            res.status(201).json(filter);
+        }
+        else{
+            res.status(404).json({message:'no search results found'});
+        }
+    })
+    .catch(error => {
+        res.status(500).json(error)
+    })
+})
 
 router.post('/',restricted, (req,res) => {
     Studies
