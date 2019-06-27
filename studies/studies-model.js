@@ -20,7 +20,7 @@ function getStudyById(id) {
         .where({ id })
         .first()
 
-    console.log('get by id model ', study)    
+    // console.log('get by id model ', study)    
     return study  
 }
 
