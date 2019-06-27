@@ -11,7 +11,7 @@ beforeAll((done) => {
         .post('/auth/register')
         .send(user)
         .then(res => {
-            console.log('post for register testing ', res.body)
+            // console.log('post for register testing ', res.body)
             expect(res.body).not.toBeNull()
 
         })
@@ -25,7 +25,7 @@ beforeAll((done) => {
 });
 
 
-describe('auth router', () => {
+describe('studies router', () => {
 
     beforeEach(async () => {
         await db('studies').truncate();
