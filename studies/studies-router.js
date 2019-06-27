@@ -4,7 +4,7 @@ const restricted = require('../auth/restricted.js')
 const Studies = require('./studies-model.js')
 
 router.get('/', (req,res) => {
-    console.log(req.body)
+    // console.log(req.body)
     Studies.getStudies()
     .then(study => {
         // console.log(study)
@@ -36,19 +36,8 @@ router.get('/:id', restricted,(req,res) => {
     )
 })
 
-// router.get('/search/:filter',restricted, async (req,res) => {
-
-//     console.log(req.params.filter)
-//     // const filter = {overall_status:req.params.filter}
-//     const results = await Studies.findBy(req.params.filter)
-
-//     res.status(200).json(results)
-// })
-
-
 router.get('/search/:filter',(req,res) => {
-    console.log('filter by ', req.params.filter)
-    // const filter = {overall_status:req.params.filter};
+    // console.log('filter by ', req.params.filter)
     Studies
     .findBy(req.params.filter)
     .then(filter => {
@@ -83,7 +72,7 @@ router.put('/:id',restricted,  (req,res) => {
     Studies
     .update(req.params.id,req.body)
     .then(count => {
-        console.log('count ',count)
+        // console.log('count ',count)
         if(count>0)
         {
             res.status(201).json(count);
@@ -93,7 +82,7 @@ router.put('/:id',restricted,  (req,res) => {
         }
     })
     .catch(error => {
-        console.log('update error ',error)
+        // console.log('update error ',error)
         res.status(500).json(error);
     }
 
@@ -105,7 +94,7 @@ router.delete('/:id',restricted,  (req,res) => {
     Studies
     .remove(req.params.id)
     .then(count => {
-        console.log('count ',count)
+        // console.log('count ',count)
         if(count>0)
         {
             res.status(201).json(count);
@@ -115,7 +104,7 @@ router.delete('/:id',restricted,  (req,res) => {
         }
     })
     .catch(error => {
-        console.log('update error ',error)
+        // console.log('delete error ',error)
         res.status(500).json(error);
     }
 
