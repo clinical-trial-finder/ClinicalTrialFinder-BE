@@ -12,21 +12,21 @@ module.exports = {
 function getStudies() {
     // console.log(db('studies'))
     return db('studies')
-    .limit(30);
+        .limit(30);
 }
 
 function getStudyById(id) {
-    const study= db('studies')
+    const study = db('studies')
         .where({ id })
         .first()
 
     // console.log('get by id model ', study)    
-    return study  
+    return study
 }
 
 function findBy(filter) {
     return db('studies')
-    .where('condition_name', 'like', `%${filter}%`)
+        .where('condition_name', 'like', `%${filter}%`)
     // .orWhere('sponsor', 'like', `%${filter}%`)
 }
 

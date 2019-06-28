@@ -9,40 +9,40 @@ module.exports = {
     connection: {
       filename: './database/clinic.db3'
     },
-    useNullAsDefault:true,
-    migrations:{
-      directory:'./database/migrations'
+    useNullAsDefault: true,
+    migrations: {
+      directory: './database/migrations'
     },
-    seeds : {
-      directory:'./database/seeds'
+    seeds: {
+      directory: './database/seeds'
     }
   },
 
-    testing: {
+  testing: {
     client: 'sqlite3',
     connection: {
       filename: './database/clinicTest.db3'
     },
-    useNullAsDefault:true,
-    migrations:{
-      directory:'./database/migrations'
+    useNullAsDefault: true,
+    migrations: {
+      directory: './database/migrations'
     },
-    seeds : {
-      directory:'./database/seeds'
+    seeds: {
+      directory: './database/seeds'
     }
   },
 
   production: {
     client: 'pg',
     connection: dbConnection,
-    useNullAsDefault:true,
-    migrations:{
-      directory:'./database/migrations'
+    useNullAsDefault: true,
+    migrations: {
+      directory: './database/migrations'
     },
-    seeds : {
-      directory:'./database/seeds'
+    seeds: {
+      directory: './database/seeds'
     }
   },
-  
+
 
 };
