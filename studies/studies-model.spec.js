@@ -161,7 +161,7 @@ describe('studies model ', () => {
             const del = await StudiesModel.remove(study[0])
             console.log('del value ', del)
             expect(del).toBe(1)
-            
+
         });
     });
 });

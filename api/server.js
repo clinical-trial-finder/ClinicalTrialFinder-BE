@@ -18,9 +18,9 @@ server.get('/', (req, res) => {
 });
 
 
-server.use('/auth',authRouter);
+server.use('/auth', authRouter);
 
-server.use('/studies',studyRouter);
+server.use('/studies', studyRouter);
 
 
 module.exports = server;

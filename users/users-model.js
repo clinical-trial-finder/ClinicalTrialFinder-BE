@@ -11,18 +11,18 @@ module.exports = {
 //     return db('users').select('username')
 // }
 
-function findBy(filter){
+function findBy(filter) {
     return db('users')
-    .where(filter)
+        .where(filter)
 }
 
-function findById(id){
+function findById(id) {
     return db('users')
-    .where({id})
-    .first()
+        .where({ id })
+        .first()
 }
 
-async function add(user){
+async function add(user) {
     const [id] = await db('users').insert(user)
 
     return findById(id)

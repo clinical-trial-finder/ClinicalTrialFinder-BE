@@ -239,7 +239,7 @@ describe('studies router', () => {
                 .set('Authorization', `${token}`)
                 .expect(201)
         })
-        
+
     })
 
     describe('SEARCH /', () => {
@@ -293,7 +293,7 @@ describe('studies router', () => {
             await supertest(server)
                 .get(`/studies/search/${search1}`)
                 .set('Authorization', `${token}`)
-            .expect(201)
+                .expect(201)
         })
     })
 });
