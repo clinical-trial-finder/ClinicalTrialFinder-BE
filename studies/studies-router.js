@@ -54,6 +54,10 @@ router.get('/search/:filter', (req, res) => {
 })
 
 router.post('/', restricted, (req, res) => {
+
+    if(req.body.nct_id && req.body.study_type && req.body.overall_status && req.body.brief_title &&
+        req.body.source && req.body.summary && req.body.sponsor && req.body.condition_name ){
+
     Studies
         .addStudy(req.body)
         .then(ids => {
@@ -63,10 +67,14 @@ router.post('/', restricted, (req, res) => {
             res.status(500).json(error);
         }
 
-        )
+        )}
+        else{
+            res.status(404).json({ message: 'Please enter all the required fields' });
+        }
 })
 
 router.put('/:id', restricted, (req, res) => {
+
     Studies
         .update(req.params.id, req.body)
         .then(count => {
@@ -81,9 +89,7 @@ router.put('/:id', restricted, (req, res) => {
         .catch(error => {
             // console.log('update error ',error)
             res.status(500).json(error);
-        }
-
-        )
+        })
 });
 
 router.delete('/:id', restricted, (req, res) => {
@@ -102,9 +108,7 @@ router.delete('/:id', restricted, (req, res) => {
         .catch(error => {
             // console.log('delete error ',error)
             res.status(500).json(error);
-        }
-
-        )
+        })
 })
 
 

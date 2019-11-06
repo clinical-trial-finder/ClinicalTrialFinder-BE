@@ -30,33 +30,5 @@ describe('auth router', () => {
 
         })
 
-    //     it('responds with 201 OK', async () => {
-    //         let game = { "title": 'Pacman2', "genre": "Arcade2", "releaseYear": 1982 }
-    //         await supertest(server)
-    //             .post('/games')
-    //             .send(game)
-    //             .expect(201)
-
-
-    //     })
-
-    //     it('responds with 422 OK', async () => {
-    //         let game = { "title": '', "genre": "Arcade3", "releaseYear": 1983 }
-    //         await supertest(server)
-    //             .post('/games')
-    //             .send(game)
-    //             .expect(422)
-
-
-    //     })
-
-    //     it('checking the content type to be json', async () => {
-    //         let game = { "title": 'Pacman4', "genre": "Arcade4", "releaseYear": 1984 }
-
-    //         await supertest(server)
-    //             .post('/games')
-    //             .send(game)
-    //             .expect('Content-Type', /json/i)
-    //     })
     })
 })
