@@ -15,7 +15,6 @@ describe('auth router', () => {
                 .post('/auth/register')
                 .send(user)
                 .then(res => {
-                    // console.log('post for register testing ',res.body)
                     expect(res.body).not.toBeNull()
 
                 })
@@ -23,7 +22,6 @@ describe('auth router', () => {
                 .post('/auth/login')
                 .send(user)
                 .then(res => {
-                    // console.log('post for login testing ',res.body.token)
                     expect(res.body.token).not.toBeNull()
 
                 })

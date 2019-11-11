@@ -23,7 +23,6 @@ describe('studies model ', () => {
                 "condition_name": "Suture, Complication"
             }
             const id = await StudiesModel.addStudy(research)
-            // console.log('study model length ',id)
             expect(id[0]).toBe(1)
 
         });
@@ -46,7 +45,6 @@ describe('studies model ', () => {
             }
             await StudiesModel.addStudy(research)
             const study = await StudiesModel.findBy("suture")
-            // console.log('study model length ',study)
 
             expect(study[0].condition_name).toBe(research.condition_name)
 
@@ -70,7 +68,6 @@ describe('studies model ', () => {
             }
             const id = await StudiesModel.addStudy(research)
             const study = await StudiesModel.getStudyById(id[0])
-            // console.log('study model length ',study)
 
             expect(study.condition_name).toBe(research.condition_name)
 
@@ -95,7 +92,6 @@ describe('studies model ', () => {
             }
             await StudiesModel.addStudy(research)
             const study = await StudiesModel.getStudies()
-            // console.log('study model get length ',study)
             expect(study.length).toBe(1)
 
         });
@@ -132,9 +128,7 @@ describe('studies model ', () => {
             }
             const study = await StudiesModel.addStudy(research)
             const updatedItem = await StudiesModel.update(study[0], research1)
-            // console.log('updated item ', updatedItem)
             const retrieve = await StudiesModel.getStudyById(updatedItem)
-            // console.log('retrieve ', retrieve)
             expect(retrieve.phase).toBe(research1.phase)
 
         });

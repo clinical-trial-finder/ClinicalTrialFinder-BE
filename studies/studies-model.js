@@ -10,7 +10,6 @@ module.exports = {
 };
 
 function getStudies() {
-    // console.log(db('studies'))
     return db('studies')
         .limit(30);
 }
@@ -20,14 +19,12 @@ function getStudyById(id) {
         .where({ id })
         .first()
 
-    // console.log('get by id model ', study)    
     return study
 }
 
 function findBy(filter) {
     return db('studies')
         .where('condition_name', 'like', `%${filter}%`)
-    // .orWhere('sponsor', 'like', `%${filter}%`)
 }
 
 function addStudy(study) {
